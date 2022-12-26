@@ -4,6 +4,7 @@ import './index.css'
 
 class List extends Component {
   render() {
+    console.log('this.props:', this.props)
     return (
       <ul className="todo-main">
         <Item />
