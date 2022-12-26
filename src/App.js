@@ -7,17 +7,22 @@ import './App.css'
 class App extends Component {
   state = {
     todoList: [
-      { id: '001', name: '吃饭', done: true },
-      { id: '002', name: '睡觉', done: true },
-      { id: '003', name: '打代码', done: false },
+      {id: '001', name: '吃饭', done: true},
+      {id: '002', name: '睡觉', done: true},
+      {id: '003', name: '打代码', done: false},
     ]
   }
+
+  addTodo = (data) => {
+    console.log('data:', data)
+  }
+
   render() {
-    const { todoList } = this.state
+    const {todoList} = this.state
     return (
       <div className="todo-container">
         <div className="todo-wrap">
-          <Header/>
+          <Header addTodo={this.addTodo}/>
           <List todoList={todoList}/>
           <Footer/>
         </div>

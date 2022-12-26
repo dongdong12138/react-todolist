@@ -4,7 +4,7 @@ import './index.css'
 class Header extends Component {
   handleKeyUp = (event) => {
     if (event.keyCode !== 13) return
-    console.log(event.target.value)
+    this.props.addTodo(event.target.value)
   }
   render() {
     return (
