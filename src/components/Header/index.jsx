@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import { nanoid } from 'nanoid'
 import './index.css'
 
 class Header extends Component {
   handleKeyUp = (event) => {
     if (event.keyCode !== 13) return
-    const todo = {id: '004', name: event.target.value, done: false}
+    const todo = {id: nanoid(), name: event.target.value, done: false}
     this.props.addTodo(todo)
   }
   render() {
