@@ -1,4 +1,5 @@
 import Header from './components/Header'
+import List from './components/List'
 import './App.css'
 
 function App() {
@@ -6,22 +7,7 @@ function App() {
     <div className="todo-container">
       <div className="todo-wrap">
         <Header />
-        <ul className="todo-main">
-          <li>
-            <label>
-              <input type="checkbox"/>
-              <span>吃饭</span>
-            </label>
-            <button className="btn btn-danger" style={{display: 'none'}}>删除</button>
-          </li>
-          <li>
-            <label>
-              <input type="checkbox"/>
-              <span>睡觉</span>
-            </label>
-            <button className="btn btn-danger" style={{display: 'none'}}>删除</button>
-          </li>
-        </ul>
+        <List />
         <div className="todo-footer">
           <label>
             <input type="checkbox"/>
