@@ -4,10 +4,14 @@ import './index.css'
 
 class List extends Component {
   render() {
-    console.log('this.props:', this.props)
+    const { todoList } = this.props
     return (
       <ul className="todo-main">
-        <Item />
+        {
+          todoList.map(item => {
+            return <Item key={item.id} />
+          })
+        }
       </ul>
     )
   }
