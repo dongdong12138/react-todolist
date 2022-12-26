@@ -14,7 +14,8 @@ class App extends Component {
   }
 
   addTodo = (data) => {
-    console.log('data:', data)
+    const {todoList} = this.state
+    this.setState({todoList: [data, ...todoList]})
   }
 
   render() {
