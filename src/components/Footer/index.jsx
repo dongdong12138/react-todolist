@@ -6,6 +6,10 @@ class Footer extends Component {
     this.props.checkAllTodo(event.target.checked)
   }
 
+  handleClearDone = () => {
+    this.props.clearDoneTodo()
+  }
+
   render() {
     const {todoList} = this.props
     const doneCount = todoList.filter(item => item.done).length
@@ -18,7 +22,7 @@ class Footer extends Component {
         <span>
             <span>已完成{doneCount}</span> / 全部{total}
           </span>
-        <button className="btn btn-danger">清除已完成任务</button>
+        <button className="btn btn-danger" onClick={this.handleClearDone}>清除已完成任务</button>
       </div>
     )
   }

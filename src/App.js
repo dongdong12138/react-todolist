@@ -39,6 +39,12 @@ class App extends Component {
     this.setState({todoList: newTodoList})
   }
 
+  clearDoneTodo = () => {
+    const {todoList} = this.state
+    const newTodoList = todoList.filter(item => !item.done)
+    this.setState({todoList: newTodoList})
+  }
+
   render() {
     const {todoList} = this.state
     return (
@@ -46,7 +52,7 @@ class App extends Component {
         <div className="todo-wrap">
           <Header addTodo={this.addTodo}/>
           <List todoList={todoList} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
-          <Footer todoList={todoList} checkAllTodo={this.checkAllTodo}/>
+          <Footer todoList={todoList} checkAllTodo={this.checkAllTodo} clearDoneTodo={this.clearDoneTodo}/>
         </div>
       </div>
     )
