@@ -10,12 +10,12 @@ class List extends Component {
   }
 
   render() {
-    const {todoList, updateTodo} = this.props
+    const {todoList, updateTodo, deleteTodo} = this.props
     return (
       <ul className="todo-main">
         {
           todoList.map(item => {
-            return <Item key={item.id} {...item} updateTodo={updateTodo}/>
+            return <Item key={item.id} {...item} updateTodo={updateTodo} deleteTodo={deleteTodo}/>
           })
         }
       </ul>
