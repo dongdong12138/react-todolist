@@ -10,14 +10,21 @@ class Item extends Component {
     }
   }
 
+  handleCheck = (id) => {
+    return (event) => {
+      const { checked } = event.target
+      this.props.updateTodo(id, checked)
+    }
+  }
+
   render() {
     const {mouse} = this.state
-    const {name, done} = this.props
+    const {id, name, done} = this.props
     return (
       <li style={{backgroundColor: mouse ? '#ddd' : ''}} onMouseEnter={this.handleMouse(true)}
           onMouseLeave={this.handleMouse(false)}>
         <label>
-          <input type="checkbox" defaultChecked={done}/>
+          <input type="checkbox" defaultChecked={done} onChange={this.handleCheck(id)}/>
           <span>{name}</span>
         </label>
         <button className="btn btn-danger" style={{display: mouse ? 'block' : 'none'}}>删除</button>

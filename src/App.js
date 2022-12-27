@@ -18,13 +18,22 @@ class App extends Component {
     this.setState({todoList: [data, ...todoList]})
   }
 
+  updateTodo = (id, done) => {
+    const {todoList} = this.state
+    const newTodoList = todoList.map(item => {
+      if (item.id === id) return {...item, done}
+      else return item
+    })
+    this.setState({todoList: newTodoList})
+  }
+
   render() {
     const {todoList} = this.state
     return (
       <div className="todo-container">
         <div className="todo-wrap">
           <Header addTodo={this.addTodo}/>
-          <List todoList={todoList}/>
+          <List todoList={todoList} updateTodo={this.updateTodo}/>
           <Footer/>
         </div>
       </div>
