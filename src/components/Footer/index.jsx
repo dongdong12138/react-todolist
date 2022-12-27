@@ -2,14 +2,18 @@ import React, { Component } from 'react'
 import './index.css'
 
 class Footer extends Component {
+  handleCheckAll = (event) => {
+    this.props.checkAllTodo(event.target.checked)
+  }
+
   render() {
-    const { todoList } = this.props
+    const {todoList} = this.props
     const doneCount = todoList.filter(item => item.done).length
     const total = todoList.length
     return (
       <div className="todo-footer">
         <label>
-          <input type="checkbox"/>
+          <input type="checkbox" checked={total && doneCount === total} onChange={this.handleCheckAll}/>
         </label>
         <span>
             <span>已完成{doneCount}</span> / 全部{total}

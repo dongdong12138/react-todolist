@@ -33,6 +33,12 @@ class App extends Component {
     this.setState({todoList: newTodoList})
   }
 
+  checkAllTodo = (done) => {
+    const {todoList} = this.state
+    const newTodoList = todoList.map(item => ({...item, done}))
+    this.setState({todoList: newTodoList})
+  }
+
   render() {
     const {todoList} = this.state
     return (
@@ -40,7 +46,7 @@ class App extends Component {
         <div className="todo-wrap">
           <Header addTodo={this.addTodo}/>
           <List todoList={todoList} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
-          <Footer todoList={todoList}/>
+          <Footer todoList={todoList} checkAllTodo={this.checkAllTodo}/>
         </div>
       </div>
     )
