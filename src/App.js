@@ -40,7 +40,7 @@ class App extends Component {
         <div className="todo-wrap">
           <Header addTodo={this.addTodo}/>
           <List todoList={todoList} updateTodo={this.updateTodo} deleteTodo={this.deleteTodo}/>
-          <Footer/>
+          <Footer todoList={todoList}/>
         </div>
       </div>
     )
